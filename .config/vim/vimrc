@@ -1,0 +1,44 @@
+" ~/.config/vim/vimrc
+
+filetype on
+filetype indent on
+
+syntax enable
+
+colorscheme zaibatsu
+
+set autoindent
+set autoread
+set cursorcolumn
+set cursorline
+set expandtab
+set hidden
+set hlsearch
+set incsearch
+set ignorecase
+set lazyredraw
+set nobackup
+set nocompatible
+set number
+set ruler
+set smartcase
+set smartindent
+set showcmd
+set showmode
+set showmatch
+set termguicolors
+set ttyfast
+set visualbell
+set wrap
+set wildmenu
+
+set background=dark
+set encoding=utf-8
+set history=10000
+set laststatus=2
+set shiftwidth=2
+set scrolloff=10
+set softtabstop=2
+set tabstop=2
+set wildignore=*.docx,*.jpg,*.png,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+set wildmode=list:longest
