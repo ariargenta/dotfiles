@@ -1,0 +1,112 @@
+// ~/.config/waybar/config.jsonc
+
+{
+    "layer": "top",
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-center": ["clock"],
+    "modules-right": ["group/hardware","group/brightness", "group/volume", "bluetooth", "network", "battery"],
+    "clock": {
+        "interval": 1,
+        "format": "󰃰 {:%a, %Y-%m-%d %H:%M:%S} CST",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "format": {
+                "today": "<span color='#FF79C6'><b>{}</b></span>"
+            }
+        }
+    },
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "󰂲",
+        "format-connected": " {num_connections}",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-ennumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "exec foot -e bluetui"
+    },
+    "battery": {
+        "interval": 60,
+        "format": "{icon} {capacity}%",
+        "format-icons": {
+            "default": ["󱃍","󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂂"],
+            "charging": ["󰢟", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰢞", "󰂊", "󰂋", "󰂃"]
+        }
+    },
+    "cpu": {
+        "interval": 10,
+        "format": " {}%",
+        "max-length": 10,
+        "on-click": "exec foot -e btop"
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {percentage}%",
+        "tooltip-format": "{used: 0.1f} GiB /{total: 0.1f} GiB",
+        "unit": "GiB",
+        "on-click": "exec foot -e htop"
+    },
+    "disk": {
+        "interval": 30,
+        "format": " {percentage_free}%",
+        "tooltip_format": "{specific_free:0.2f}",
+        "unit": "GiB",
+        "on-click": "exec foot -e yazi"
+    },
+    "custom/hardware-toogle": {
+        "format": "󰋊",
+        "tooltip": false
+    },
+    "group/hardware": {
+        "orientation": "horizontal",
+        "drawer": {
+            "start-expanded": false,
+            "click-to-reveal": true,
+            "transition-left-to-right": true
+        },
+        "modules": ["custom/hardware-toogle", "cpu", "memory", "disk"]
+    },
+    "network": {
+        "format": "",
+        "format-wifi": "󰖩",
+        "format-ethernet": "󰈁",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-disconnected": "󰤮",
+        "max-length": 50,
+        "on-click": "exec foot -e nmtui"
+    },
+    "pulseaudio": {
+        "format": "{icon}{volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "scroll-step": 1,
+        "ignored-sinks": ["Easy Effects Sink"],
+        "on-click": "exec foot -e wiremix"
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 125,
+        "orientation": "horizontal"
+    },
+    "group/volume": {
+        "orientation": "horizontal",
+        "modules": ["pulseaudio", "pulseaudio/slider"]
+    },
+    "backlight": {
+        "format": "󰃟 {percent}%"
+    },
+    "backlight/slider": {
+        "min": 5,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+    "group/brightness": {
+        "format": "󰋊",
+        "orientation": "horizontal",
+        "modules": ["backlight", "backlight/slider"]
+    }
+}
