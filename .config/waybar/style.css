@@ -1,0 +1,100 @@
+/* ~/.config/waybar/style.css */
+
+@define-color background_color rgba(40, 42, 54, 1.0);
+@define-color current_line rgba(98, 114, 164, 1.0);
+@define-color selection rgba(68, 71, 90, 1.0);
+@define-color foreground_color rgba(248, 248, 242, 1.0);
+@define-color comment rgba(98, 114, 164, 1.0);
+@define-color red rgba(255, 85, 85, 1.0);
+@define-color orange rgba(255, 184, 108, 1.0);
+@define-color yellow rgba(241, 250, 140, 1.0);
+@define-color green rgba(80, 250, 123, 1.0);
+@define-color cyan rgba(139, 233, 253, 1.0);
+@define-color purple rgba(189, 147, 249, 1.0);
+@define-color pink rgba(255, 121, 198, 1.0);
+
+* {
+    font-family: Terminess Nerd Font Propo;
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: rgba(43, 48, 59, 0.5);
+    color: #FFFFFF;
+}
+
+#workspaces button {
+    padding: 2px;
+    margin: 2px 0px 2px 2px;
+    background: transparent;
+    border-radius: 2px;
+    color: white;
+}
+
+#workspaces button.active {
+    background: @foreground_color;
+    color: black;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    background: @red;
+    font-weight: bold;
+}
+
+#battery,
+#bluetooth,
+#brightness,
+#cpu,
+#disk,
+#hardware,
+#memory,
+#network,
+#volume {
+    border-radius: 2px;
+    padding: 2px 2px 2px 2px;
+    background: @selection;
+    margin: 2px 2px 2px 2px;
+}
+
+#pulseaudio-slider,
+#backlight-slider {
+    padding: 0px;
+    margin: 0px;
+    margin-left: 8px;
+}
+
+#pulseaudio-slider slider,
+#backlight-slider slider {
+    all: unset;
+    min-height: 0;
+    min-width: 0;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+#pulseaudio-slider trough,
+#backlight-slider trough {
+    min-height: 8px;
+    min-width: 56px;
+    border-radius: 4px;
+    background: @selection;
+}
+
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+    min-width: 12px;
+    border-radius: 6px;
+    background: @cyan;
+}
+
+tooltip {
+    background: @comment;
+    border-radius: 4px;
+}
+
+tooltip label {
+    color: white;
+}
