@@ -1,0 +1,47 @@
+# ~/.config/zsh/starshi.toml
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+format = "$os $username[@](yellow)$hostname $directory $git_branch$git_status$character"
+
+[username]
+format = "[$user](green bold)"
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[$hostname](cyan bold)"
+disabled = false
+
+[os]
+disabled = false
+format = "[$symbol](#blue) "
+
+[os.symbols]
+Arch = ""
+
+[directory]
+format = "[$path](bold purple) "
+truncation_length = 4
+truncate_to_repo = true
+
+[git_branch]
+symbol = ""
+format = "[$symbol $branch](bold purple) "
+
+[git_status]
+format = "($ahead_behind$staged$modified$untracked$deleted$conflicted)"
+ahead = "[⇡$count ](bold cyan)"
+behind = "[⇣$count ](bold cyan)"
+diverged = "[⇡$ahead_count⇣$behind_count ](bold cyan)"
+staged = "[$count ](bold green)"
+modified = "[$count ](bold yellow)"
+untracked = "[$count ](bold red)"
+deleted = "[$count ](bold red)"
+conflicted = "󰞇$count ](bold red)"
+
+[character]
+success_symbol = "[>](green)"
+error_symbol = "[>](red)"
+vimcmd_symbol = "[>](blue)"
